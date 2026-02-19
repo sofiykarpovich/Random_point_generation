@@ -1,0 +1,19 @@
+﻿  Source.cpp
+D:\Point_\Source.cpp(50,62): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+D:\Point_\Source.cpp(50,62): warning C4244:         with
+D:\Point_\Source.cpp(50,62): warning C4244:         [
+D:\Point_\Source.cpp(50,62): warning C4244:             _Ty=int
+D:\Point_\Source.cpp(50,62): warning C4244:         ]
+D:\Point_\Source.cpp(51,31): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Point_\Source.cpp(51,25): warning C4244: инициализация: преобразование "double" в "const int", возможна потеря данных
+D:\Point_\Source.cpp(72,56): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\Point_\Source.cpp(72,56): warning C4267:         with
+D:\Point_\Source.cpp(72,56): warning C4267:         [
+D:\Point_\Source.cpp(72,56): warning C4267:             _Ty=int
+D:\Point_\Source.cpp(72,56): warning C4267:         ]
+D:\Point_\Source.cpp(72,53): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\Point_\Source.cpp(72,53): warning C4267:         with
+D:\Point_\Source.cpp(72,53): warning C4267:         [
+D:\Point_\Source.cpp(72,53): warning C4267:             _Ty=int
+D:\Point_\Source.cpp(72,53): warning C4267:         ]
+  Point_.vcxproj -> D:\Point_\x64\Debug\Point_.exe
