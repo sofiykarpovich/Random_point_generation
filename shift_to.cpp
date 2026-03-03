@@ -2,6 +2,7 @@
 #include <sstream>
 
 std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& space_coordinates_n_) {
+
     std::set<std::vector<int>> result;
     std::string axis_shifting{};
 
@@ -15,10 +16,10 @@ std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& spa
 
 
     while (std::getline(ss, token, ',')) {
-        size_t dash_pos = token.find('-'); // Проверка на диапазон (например, "1-3")
+        size_t dash_pos = token.find('-'); 
         if (dash_pos != std::string::npos) {
-            int start = std::stoi(token.substr(0, dash_pos));
-            int end = std::stoi(token.substr(dash_pos + 1));
+            const int start = std::stoi(token.substr(0, dash_pos));
+            const int end = std::stoi(token.substr(dash_pos + 1));
             for (int i{ start }; i <= end; ++i) {
                 if (i >= 1 && i <= static_cast<int>(space_coordinates_n_.begin()->size())) {
                     selected_axes.push_back(i - 1);  
@@ -39,6 +40,7 @@ std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& spa
         return space_coordinates_n_;
     }
 
+
     std::vector<int> shift_values(selected_axes.size());
     std::uniform_int_distribution<int> shift_dist(radius_ + 1, 1000);
     std::uniform_int_distribution<int> direction_dist(0, 100);
@@ -54,7 +56,6 @@ std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& spa
         std::cout << "axis " << selected_axes[i] + 1 << ": " << shift_values[i] << std::endl << std::endl;
     }
     std::cout << std::endl;
-
 
 
     for (const std::vector<int>& point : space_coordinates_n_) {
