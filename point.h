@@ -13,8 +13,6 @@ public:
         gen.seed(rd());
     }
 
-    //void GenerationVector(std::vector<int>& vector, const int size, int s, int current);
-
     void Shake(std::vector<int>& array);
     std::set<std::vector<int>>& GenerationRandomValueOnSpaceCircle(const int space, const int radius, const int count_point);
     void PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coordinates_space_n) const;
