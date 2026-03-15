@@ -1,18 +1,20 @@
-#include "point.h"
+#include "creating_a_cluster.h"
+
 #include <algorithm>
 #include <chrono>
 #include <string>
 
 
 std::set<std::vector<int>>& CloudPoints::GenerationRandomValueOnSpaceCircle(const int space, const int radius, const int count_point) {
-   
-    std::cout << "Space: " << space << std::endl;
+    num_vec_.reserve(space);
+
+    std::cout << "\nSpace: " << space << std::endl;
     std::cout << "Radius: " << radius << std::endl;
 
     for (size_t i{ 0 }; i < count_point; ++i) {
         int s = radius * radius;
 
-        for (size_t j{ 0 }; j < space; ++j) {
+        for (size_t j{ 0 }; j < space; j++) {
             std::uniform_int_distribution<int> b(0, s);
             const int a = b(gen);
             
@@ -20,7 +22,7 @@ std::set<std::vector<int>>& CloudPoints::GenerationRandomValueOnSpaceCircle(cons
             const double d = c(gen);
 
             std::uniform_int_distribution<int> point_x_i(0, s*d);
-            const int x = sqrt(point_x_i(gen));
+            const int x = static_cast<int>(std::sqrt(point_x_i(gen)));
 
             num_vec_.push_back([x, a](){
                 return (a % 2 == 0) ? -x : x;
@@ -57,21 +59,4 @@ void CloudPoints::PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coor
         std::cout << "}" << "\n";
     }
 
-}
-
-int main() {
-    int space, radius, count_points;
-    std::cout << "Enter space: ";
-    std::cin >> space;
-    for (size_t i{ 0 }; i < 3; ++i) {
-
-        std::cout << "\nEnter radius, count_points: ";
-        std::cin >> radius >>count_points;
-
-        CloudPoints points{space, radius, count_points};
-        auto& points_1 = points.GenerationRandomValueOnSpaceCircle(space, radius, count_points);
-        points.PrintRandomValueOnSpaceCircle(points_1);
-
-        points.PrintRandomValueOnSpaceCircle(points.ShiftTo(points_1));
-    }
 }
