@@ -1,4 +1,4 @@
-#include "point.h"
+#include "creating_a_cluster.h"
 #include <sstream>
 
 std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& space_coordinates_n_) {
@@ -51,9 +51,9 @@ std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& spa
     }
 
 
-    std::cout << "\nShifting by: \n";
+    std::cout << "\nShifting by: \n\n";
     for (size_t i{ 0 }; i < selected_axes.size(); ++i) {
-        std::cout << "axis " << selected_axes[i] + 1 << ": " << shift_values[i] << std::endl << std::endl;
+        std::cout << "axis " << selected_axes[i] + 1 << ": " << shift_values[i] << std::endl;
     }
     std::cout << std::endl;
 
