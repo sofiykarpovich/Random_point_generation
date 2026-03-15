@@ -27,11 +27,11 @@ set(HEADERS
 ) 
 
 
-add_executable(Points_ ${SOURCES})
+add_executable(Cluster ${SOURCES})
 
-install(TARGETS Points_ DESTINATION bin)
-install(FILES ${HEADERS} DESTINATION include/Points_)
+install(TARGETS Cluster DESTINATION bin)
+install(FILES ${HEADERS} DESTINATION include/Cluster)
 
-message(STATUS "Конфигурация завершена")
-message(STATUS "Исполняемый файл: RandomPointGeneration")
+
+message(STATUS "Исполняемый файл: Cluster")
 message(STATUS "Тип сборки: ${CMAKE_BUILD_TYPE}")
