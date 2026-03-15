@@ -15,12 +15,15 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(SOURCES
     src/basic_creation.cpp
     src/shift_to.cpp
+    src/cmdline.cpp
+    src/main.cpp
 ) 
 
 
 #Installing_variable
 set(HEADERS
     include/creating_a_cluster.h
+    include/cmdline.h
 ) 
 
 
