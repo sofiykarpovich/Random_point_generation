@@ -24,7 +24,7 @@ ProgramConfig parse_command_line(int argc, char* argv[]) {
         {"amount",  required_argument, 0, 'a'},
         {"interactive", no_argument, 0, 'i'},
         {"verbose", no_argument, 0, 'v'},
-        {"help",   no_argument, 0, 'h'},
+        {"help", no_argument, 0, 'h'},
         {0, 0, 0, 0}
     };
 
