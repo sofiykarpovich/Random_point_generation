@@ -1,5 +1,4 @@
-#ifndef CMDLINE_H
-#define CMDLINE_H
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -20,6 +19,7 @@ struct ProgramConfig {
 		<< " verbose: " << (verbose ? "yes" : "no") << std::endl;
 	}
 
-	ProgramConfig parse_command_line(int argc, char* argv[]);
 };
-#endif
+
+ProgramConfig parse_command_line(int argc, char* argv[]);
+void PrintUsage(const char* prog_name);
