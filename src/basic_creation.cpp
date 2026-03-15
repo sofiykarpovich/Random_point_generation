@@ -10,6 +10,7 @@ std::set<std::vector<int>>& CloudPoints::GenerationRandomValueOnSpaceCircle(cons
 
     std::cout << "\nSpace: " << space << std::endl;
     std::cout << "Radius: " << radius << std::endl;
+    std::cout << "Amont points: " << count_point << std::endl;
 
     for (size_t i{ 0 }; i < count_point; ++i) {
         int s = radius * radius;
