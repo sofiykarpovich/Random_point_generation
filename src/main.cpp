@@ -1,14 +1,12 @@
 #include "cmdline.h"
-#include "shift_to.cpp"
-#include "basic_creation.cpp"
+#include "creating_a_cluster.h"
 
 #include <iostream>
 
 int main(int argc, char* argv[]) {
-    // Парсим аргументы командной строки
+
     ProgramConfig config = parse_command_line(argc, argv);
 
-    // Проверка и интерактивный режим
     if (config.interactive || config.space == 0 || config.radius == 0 || config.count_points == 0) {
         std::cout << "Interactive inpute mode \n";
 
@@ -26,18 +24,18 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    // Проверка корректности
+
     if (config.space <= 0 || config.radius <= 0 || config.count_points <= 0) {
         std::cerr << "Erorr!\n";
         return 1;
     }
 
-    // Вывод конфигурации если нужно
+
     if (config.verbose) {
         config.Print();
     }
 
-    // Основная логика программы
+
     for (size_t i{ 0 }; i < 3; ++i) {
         CloudPoints points{ config.space, config.radius, config.count_points };
         auto& points_1 = points.GenerationRandomValueOnSpaceCircle(
