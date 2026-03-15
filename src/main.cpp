@@ -36,13 +36,11 @@ int main(int argc, char* argv[]) {
     }
 
 
-    for (size_t i{ 0 }; i < 3; ++i) {
-        CloudPoints points{ config.space, config.radius, config.count_points };
-        auto& points_1 = points.GenerationRandomValueOnSpaceCircle(
-            config.space, config.radius, config.count_points);
-        points.PrintRandomValueOnSpaceCircle(points_1);
-        points.PrintRandomValueOnSpaceCircle(points.ShiftTo(points_1));
-    }
+    CloudPoints points{ config.space, config.radius, config.count_points };
+    auto& points_1 = points.GenerationRandomValueOnSpaceCircle(
+        config.space, config.radius, config.count_points);
+    points.PrintRandomValueOnSpaceCircle(points_1);
+    points.PrintRandomValueOnSpaceCircle(points.ShiftTo(points_1));
 
     return 0;
 }
