@@ -1,7 +1,7 @@
 .vs/ 
 Debug/ 
 x64/ 
-build
+build/
 *.ipch 
 *.obj 
 *.exe 
