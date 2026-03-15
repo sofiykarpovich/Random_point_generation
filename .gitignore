@@ -1,17 +1,30 @@
-.vs/ 
-Debug/ 
-x64/ 
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+*.db
+*.opendb
+*.log
+*.tlog
+ipch/
+
+# Build results
+Debug/
+Release/
 build/
+out/
+x64/
+[Bb]in/
+[Oo]bj/
+
+# Project files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
 *.ipch 
 *.obj 
 *.exe 
 *.pdb 
 *.ilk 
-*.tlog/ 
-*.db 
-*.suo 
-*.user 
-*.sln
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
+*.tlog/  
