@@ -4,19 +4,23 @@
 #include <iostream>
 
 struct ProgramConfig {
-	int space{ 0 };
-	int radius{ 0 };
-	int count_points{ 0 };
-	bool interactive{ false };
-	bool verbose{ false };
+	int space { 0 };
+	int radius { 0 };
+	int count_points { 0 };
+	std::string axis_shift {};
+	bool interactive { false };
+	bool verbose { false };
+	bool flag_view { false };
 
-	void Print() const{
-		std::cout << "Configuration: \n"
+	void Print() const {
+		std::cerr << "Configuration: \n"
 	    << " space = " << space << "\n"
 		<< " radius = " << radius << "\n"
 		<< " count points = " << count_points << "\n"
+		<< " axis offset = " << axis_shift << "\n"
 	    << " interactive: " << (interactive ? "yes" : "no") << "\n"
-		<< " verbose: " << (verbose ? "yes" : "no") << std::endl;
+		<< " verbose: " << (verbose ? "yes" : "no") << "\n"
+		<< " flag view: " << (flag_view ? "yes" : "no") << std::endl;
 	}
 
 };

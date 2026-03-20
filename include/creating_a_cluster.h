@@ -16,8 +16,8 @@ public:
 
     void Shake(std::vector<int>& array);
     std::set<std::vector<int>>& GenerationRandomValueOnSpaceCircle(const int space, const int radius, const int count_point);
-    void PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coordinates_space_n) const;
-    std::set<std::vector<int>>& ShiftTo(std::set<std::vector<int>>& coordinates_space_n);
+    void PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coordinates_space_n, bool edit = false, bool shift = false) const;
+    std::set<std::vector<int>>& ShiftTo(std::set<std::vector<int>>& coordinates_space_n, std::string shift, bool edit = false);
 
 private:
     int space_, radius_, count_points_;

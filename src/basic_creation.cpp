@@ -8,9 +8,6 @@
 std::set<std::vector<int>>& CloudPoints::GenerationRandomValueOnSpaceCircle(const int space, const int radius, const int count_point) {
     num_vec_.reserve(space);
 
-    std::cout << "\nSpace: " << space << std::endl;
-    std::cout << "Radius: " << radius << std::endl;
-    std::cout << "Amont points: " << count_point << std::endl;
 
     for (size_t i{ 0 }; i < count_point; ++i) {
         int s = radius * radius;
@@ -49,15 +46,28 @@ void CloudPoints::Shake(std::vector<int>& array) {
     }
 }
 
-void CloudPoints::PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coordinates_space_n) const {
-    std::cout << "\nPoints: " << std::endl;
-    for (const std::vector<int>& point : coordinates_space_n) {
-        std::cout << "{";
-        for(size_t i{0}; i < point.size() - 1; ++i){
-            std::cout << point[i] << ", ";
+void CloudPoints::PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coordinates_space_n, bool edit, bool shift) const {
+    if(edit){
+        std::cerr << "\nPoints: " << std::endl;
+        for (const std::vector<int>& point : coordinates_space_n) {
+            std::cerr << "{";
+            for(size_t i{0}; i < point.size() - 1; ++i){
+                    std::cout << point[i] << ", ";
+                    std::cerr << point[i] << ", ";
+            }
+            std::cout << point.back();
+            std::cerr << point.back();
+            std::cerr << "}" << "\n";
         }
-        std::cout << point.back();
-        std::cout << "}" << "\n";
+
+    }if(shift){
+        for (const std::vector<int>& point : coordinates_space_n) {
+            for(size_t i{0}; i < point.size() - 1; ++i){
+                    std::cout << point[i] << ", ";
+            }
+            std::cout << point.back();
+        }
     }
+    
 
 }

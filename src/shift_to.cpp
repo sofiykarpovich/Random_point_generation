@@ -1,17 +1,14 @@
-#include "creating_a_cluster.h"
+#include "../include/creating_a_cluster.h"
+#include "../include/cmdline.h"
 #include <sstream>
 
-std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& space_coordinates_n_) {
+std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& space_coordinates_n_, std::string axis_shift, bool edit) {
+    
 
     std::set<std::vector<int>> result;
-    std::string axis_shifting{};
-
-    std::cout << "\nWhich axis do you want to move the cloud points?  (e.g., '1,2,3' or '1-3'):  " << std::endl;
-    std::cin >> axis_shifting;
-
 
     std::vector<int> selected_axes;
-    std::stringstream ss(axis_shifting);
+    std::stringstream ss(axis_shift);
     std::string token;
 
 
@@ -36,7 +33,7 @@ std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& spa
 
 
     if (selected_axes.empty()) {
-        std::cout << "No valid axes selected. Returning original set." << std::endl;
+        std::cerr << "No valid axes selected. Returning original set." << std::endl;
         return space_coordinates_n_;
     }
 
@@ -50,12 +47,13 @@ std::set<std::vector<int>>& CloudPoints::ShiftTo(std::set<std::vector<int>>& spa
         shift_values[i] = (direction_dist(gen) % 2 == 0) ? shift_dist(gen) : -shift_dist(gen);
     }
 
-
-    std::cout << "\nShifting by: \n\n";
-    for (size_t i{ 0 }; i < selected_axes.size(); ++i) {
-        std::cout << "axis " << selected_axes[i] + 1 << ": " << shift_values[i] << std::endl;
+    if(edit) {
+        std::cerr << "\nShifting by: \n\n";
+        for (size_t i{ 0 }; i < selected_axes.size(); ++i) {
+            std::cerr << "axis " << selected_axes[i] + 1 << ": " << shift_values[i] << std::endl;
+        }
+        std::cerr << std::endl;
     }
-    std::cout << std::endl;
 
 
     for (const std::vector<int>& point : space_coordinates_n_) {
