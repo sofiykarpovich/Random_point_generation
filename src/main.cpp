@@ -22,12 +22,8 @@ int main(int argc, char* argv[]) {
             std::cerr << "Enter count_points: ";
             std::cin >> config.count_points;
         }
-        if(config.axis_shift == ""){
-            std::cerr << "Enter axis shift: ";
-            std::cin >> config.axis_shift;
-        }
-        else{
-            std::cerr << "\nWhich axis do you want to move the cloud points?  (e.g., '1,2,3' or '1-3'):  ";
+        if(config.axis_shift == "") {
+            std::cerr << "Which axis do you want to move the cloud points?\nEnter axis shift: ";
             std::cin >> config.axis_shift;
         }
     }

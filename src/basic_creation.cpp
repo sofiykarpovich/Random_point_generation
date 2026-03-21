@@ -1,4 +1,4 @@
-#include "creating_a_cluster.h"
+#include "../include/creating_a_cluster.h"
 
 #include <algorithm>
 #include <chrono>
@@ -52,15 +52,13 @@ void CloudPoints::PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coor
         for (const std::vector<int>& point : coordinates_space_n) {
             std::cerr << "{";
             for(size_t i{0}; i < point.size() - 1; ++i){
-                    std::cout << point[i] << ", ";
                     std::cerr << point[i] << ", ";
             }
-            std::cout << point.back();
             std::cerr << point.back();
             std::cerr << "}" << "\n";
         }
-
-    }if(shift){
+    }
+    if(shift) {
         for (const std::vector<int>& point : coordinates_space_n) {
             for(size_t i{0}; i < point.size() - 1; ++i){
                     std::cout << point[i] << ", ";
