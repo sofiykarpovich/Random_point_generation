@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include "../include/formatter_factory.h"
 
 struct ProgramConfig {
 	int space { 0 };
@@ -11,6 +12,8 @@ struct ProgramConfig {
 	bool interactive { false };
 	bool verbose { false };
 	bool flag_view { false };
+	std::string format = "csv";
+	std::string conclusion;
 
 	void Print() const {
 		std::cerr << "Configuration: \n"
@@ -20,7 +23,8 @@ struct ProgramConfig {
 		<< " axis offset = " << axis_shift << "\n"
 	    << " interactive: " << (interactive ? "yes" : "no") << "\n"
 		<< " verbose: " << (verbose ? "yes" : "no") << "\n"
-		<< " flag view: " << (flag_view ? "yes" : "no") << std::endl;
+		<< " flag view: " << (flag_view ? "yes" : "no") << "\n"
+		<< " format: " << FormatterFactory::GetFormat() << std::endl;
 	}
 
 };
