@@ -16,6 +16,8 @@ set(SOURCES
     src/basic_creation.cpp
     src/shift_to.cpp
     src/cmdline.cpp
+    src/csv_formatter.cpp
+    src/json_formatter.cpp
     src/main.cpp
 ) 
 
@@ -24,14 +26,18 @@ set(SOURCES
 set(HEADERS
     include/creating_a_cluster.h
     include/cmdline.h
+    include/formatter.h
+    include/formatter_factory.h
+    include/csv_formatter.h
+    include/json_formatter.h
 ) 
 
 
-add_executable(Cluster ${SOURCES})
+add_executable(cluster ${SOURCES})
 
-install(TARGETS Cluster DESTINATION bin)
-install(FILES ${HEADERS} DESTINATION include/Cluster)
+install(TARGETS cluster DESTINATION bin)
+install(FILES ${HEADERS} DESTINATION include/cluster)
 
 
-message(STATUS "Исполняемый файл: Cluster")
+message(STATUS "Исполняемый файл: cluster")
 message(STATUS "Тип сборки: ${CMAKE_BUILD_TYPE}")
