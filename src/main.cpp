@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     ProgramConfig config = parse_command_line(argc, argv);
     auto formatter = FormatterFactory::create(config.format);
 
-    if (config.interactive || config.space == 0 || config.radius == 0 || config.count_points == 0 || config.axis_shift == "") {
+    if (config.interactive || config.space == 0 || config.radius == 0 || config.count_points == 0 || config.axis_shift == "" || config.conclusion == "") {
         std::cerr << "Interactive inpute mode \n";
 
         if (config.space == 0) {
@@ -27,6 +27,10 @@ int main(int argc, char* argv[]) {
         if(config.axis_shift == "") {
             std::cerr << "Which axis do you want to move the cloud points?\nEnter axis shift: ";
             std::cin >> config.axis_shift;
+        }
+        if(config.conclusion == "") {
+            std::cerr << "By default, a file is created with name \"new_cluster\" with installed format";
+            config.conclusion = "new_cluster";
         }
     }
 
