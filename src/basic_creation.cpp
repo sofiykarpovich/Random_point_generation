@@ -47,7 +47,7 @@ void CloudPoints::Shake(std::vector<int>& array) {
 }
 
 void CloudPoints::PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coordinates_space_n, bool edit, bool shift) const {
-    if(edit){
+    if(edit && shift){
         std::cerr << "\nPoints: " << std::endl;
         for (const std::vector<int>& point : coordinates_space_n) {
             std::cerr << "{";
@@ -60,10 +60,13 @@ void CloudPoints::PrintRandomValueOnSpaceCircle(std::set<std::vector<int>>& coor
     }
     if(shift) {
         for (const std::vector<int>& point : coordinates_space_n) {
+            std::cerr << "{ ";
             for(size_t i{0}; i < point.size() - 1; ++i){
                     std::cout << point[i] << ", ";
             }
             std::cout << point.back();
+            std::cerr << " }\n";
+
         }
     }
     
